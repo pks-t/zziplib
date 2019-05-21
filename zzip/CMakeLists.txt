@@ -18,6 +18,8 @@ option(ZZIPFSEEKO "Build libzzipfseeko (based on posix.1 api)" ON)
 option(ZZIPCOMPAT "Build compatibility with old libzzip releases" ON)
 option(ZZIPLIBTOOL "Ensure binary compatibility with libtool" ON)
 
+set(ZZIP_PACKAGE ${PROJECT_NAME})
+set(ZZIP_VERSION \"${PROJECT_VERSION}\")
 
 if(ZZIPCOMPAT)
 find_package ( UnixCommands REQUIRED ) # bash cp mv rm gzip tar
