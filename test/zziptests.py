@@ -3498,6 +3498,7 @@ if __name__ == "__main__":
   opt, args = _o.parse_args()
   logging.basicConfig(level = logging.WARNING - 10 * opt.verbose)
   topsrcdir = opt.topsrcdir
+  bindir = opt.bindir
   testdatdir = opt.testdatadir
   mkzip = opt.mkzip
   unzip = opt.unzip
