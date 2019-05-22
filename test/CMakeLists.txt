@@ -34,8 +34,8 @@ add_executable(zzipsetstub zzipsetstub.c)
 target_link_libraries(zzipself     libzzip        ZLIB::ZLIB)
 target_link_libraries(zzipsetstub  libzzip        ZLIB::ZLIB)
 
-target_include_directories(zzipself     PRIVATE "${CMAKE_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}")
-target_include_directories(zzipsetstub  PRIVATE "${CMAKE_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}")
+target_include_directories(zzipself     PRIVATE "${CMAKE_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_BINARY_DIR}")
+target_include_directories(zzipsetstub  PRIVATE "${CMAKE_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_BINARY_DIR}")
 
 if(CMAKE_GENERATOR MATCHES "Makefiles")
 add_custom_command(OUTPUT zzipshowme${EXEEXT}
@@ -65,7 +65,6 @@ add_custom_command(OUTPUT test0.zip
     COMMAND ${CP} ${README} tmp/README
     COMMAND ${BASH} -c "cd tmp && ${MKZIP} ../test0.zip README"
     COMMAND ${CP} test0.zip test.zip
-    COMMAND ${CP} test0.zip ${srcdir}/test.zip
     BYPRODUCTS test.zip
     VERBATIM)
 add_custom_target(testzips ALL DEPENDS test0.zip)
